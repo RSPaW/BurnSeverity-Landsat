@@ -13,7 +13,7 @@ untar(tarfile, exdir = here("tmp"))
 plst <- list.files(here("tmp\\home\\jovyan\\fireSeverity\\rgb_nbr"), pattern = ".png$" )
 tlst <- list.files(here("tmp\\home\\jovyan\\fireSeverity\\rgb_nbr"), pattern = ".tif$" )
 
-dates <- read_csv(here("inputs", "clean_dates.csv"))
+dates <- read_csv(here("inputs", "clean_dates_edited.csv"))
 
 burns <- unique(str_split_fixed(plst, "_", 3)[,1])
 #burns <- "PHL-2002-91048695" 
