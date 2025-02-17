@@ -3,6 +3,7 @@
 # The code takes the fire boundary shp and a list of fire dates and combines
 # the into one shp with standard columns. if this is done correctly all 
 # remaing codes should run wihtout error.
+# more testing
 
 # Load libraries
 library(sf) # to handle shp files
@@ -11,7 +12,7 @@ library(lubridate) # date manipulation
 library(here) # reference data locations
 library(lwgeom)
 library(raster)
-
+ 
 mga50 <- "+proj=utm +zone=50 +south +datum=WGS84 +units=m +no_defs"
 
 # set the number of days to be included in the analysis. Fires along the south coast
