@@ -97,7 +97,7 @@ foreach(i = 1:length(burns)) %dopar% {
   ply <- st_read(here::here("inputs", "shpByBurn", paste0(bdr.name, "_boundry.shp")), 
                  quiet = TRUE)
   
-  dir.create(here::here("models", "ibras"), showWarnings = FALSE)
+  dir.create(here::here("models", "ibras"), showWarnings = FALSE, recursive = TRUE)
   if(file.exists(here::here("models", "ibras", ply$BURNID[1])) == FALSE){
     ply.i <- st_intersection(st_transform(ply, crs = st_crs(ibra)), ibra)
     ply.i <- dplyr::select(ply.i, IWA_SUB_NA)
