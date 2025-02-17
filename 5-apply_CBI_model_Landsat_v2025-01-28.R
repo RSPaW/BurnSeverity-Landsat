@@ -50,7 +50,7 @@ heath.dir2 <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\he
 heath.list2 <- list.files(heath.dir2, pattern = "shp$", full.names = TRUE)
 
 i <- 1
-for (i in 1:length(heath.list)){
+for (i in 1:length(heath.list2)){
   heath.i <- st_read(heath.list2[i], quiet = TRUE) %>%
     st_transform("+proj=aea +lat_1=-18 +lat_2=-36 +lat_0=0 +lon_0=132 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs")
   heath.i <- heath.i[,0]
