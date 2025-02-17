@@ -46,11 +46,12 @@ heath <- st_read(paste0(heath.dir, "\\", heath.list[1]), quiet = TRUE) %>%
   st_transform("+proj=aea +lat_1=-18 +lat_2=-36 +lat_0=0 +lon_0=132 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs")
 heath <- heath[,0]
 
-heath.list <- list.files(here("models", "heath"), pattern = "shp$")
+heath.dir2 <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\heath\\heathFromDistricts"
+heath.list2 <- list.files(heath.dir2, pattern = "shp$", full.names = TRUE)
 
 i <- 1
 for (i in 1:length(heath.list)){
-  heath.i <- st_read(here("models", "heath", heath.list[i]), quiet = TRUE) %>%
+  heath.i <- st_read(heath.list2[i], quiet = TRUE) %>%
     st_transform("+proj=aea +lat_1=-18 +lat_2=-36 +lat_0=0 +lon_0=132 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs")
   heath.i <- heath.i[,0]
   heath <- rbind(heath, heath.i)
