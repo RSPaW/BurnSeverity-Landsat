@@ -14,7 +14,7 @@ mga50 <- "+proj=utm +zone=50 +south +datum=WGS84 +units=m +no_defs"
 pre.days <- 400 # number of days prior to start date included
 post.days <- 400  # number of days following to end date included
 
-histpath <- "M:\\Zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical"
+histpath <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical"
 
 # inputs 
 shp.name <- "Prestonfires.shp" # shp name
