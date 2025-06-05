@@ -280,7 +280,7 @@ ggsave(here(v, "severity_stats", "summaryStats.jpg"), width = 5, height = 5)
 
 ########################################################
 #make treatment area
-idir <- "M:\\Zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xIndex\\"
+idir <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xIndex\\"
 shpl <- sort(list.files(idir, pattern = "DBCA_FireHistory_1987to2017_Id.*shp$"), decreasing = TRUE)
 shp.id <- st_read(paste0(idir, shpl[1]), quiet = TRUE) %>%
   st_drop_geometry() %>%
