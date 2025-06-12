@@ -4,7 +4,7 @@ library(sf)
 library(lubridate)
 library(fasterize)
 library(here)
-library(rgdal)
+#library(rgdal)
 library(doParallel)
 
 v <- paste0("v", Sys.Date())
