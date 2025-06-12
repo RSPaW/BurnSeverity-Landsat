@@ -113,7 +113,7 @@ foreach(i = 1:length(burns)) %dopar% {
     y <- y+1
   }
   
-  rst.per <- raster(paste0("M:\\Zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\sw_woodyVeg\\", w.i[1]))  
+  rst.per <- raster(paste0("Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\sw_woodyVeg\\", w.i[1]))  
  #########################################
   
   per.i <- crop(rst.per, st_transform(st_buffer(burn.shp, 240), crs(rst.per)))
