@@ -17,7 +17,7 @@ post.days <- 400  # number of days following to end date included
 histpath <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical"
 
 # inputs 
-shp.name <- "Prestonfires.shp" # shp name
+shp.name <- "Amarillup_Fires.shp" # shp name
 
 # read in shp
 shp <- st_read(here::here("fireSelection", shp.name), stringsAsFactors = FALSE) %>% 
@@ -87,9 +87,10 @@ for (i in 1:nrow(shp.alb)){
 }
 #################################################################
 # get ibras
+mdir <- "Z:/DEC/Prescribed_Bushfire_Outcomes_2018-134/DATA/Working/Historical/xModels"
 
-ibra <- st_read(here("models\\IBRA_wa.shp"), quiet = TRUE) 
-dir.create(here::here("models", "ibras"), showWarnings = FALSE)
+ibra <- st_read(here(mdir,"IBRA_wa.shp"), quiet = TRUE) 
+dir.create("models/ibras", recursive = TRUE)
 library(doParallel)
 i <- 1
 UseCores <- 10
