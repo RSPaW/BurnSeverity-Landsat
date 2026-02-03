@@ -12,7 +12,7 @@ v <- paste0("v", Sys.Date())
 
 lshp <- list.files(here::here("inputs", "shpByBurn"), pattern = "shp$")
 
-shpx <- st_read("Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xIndex\\DBCA_FireHistory_1987to2017_Id.shp", quiet = TRUE) %>%
+shpx <- st_read("M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xIndex\\DBCA_FireHistory_1987to2017_Id.shp", quiet = TRUE) %>%
   st_transform("+proj=aea +lat_1=-18 +lat_2=-36 +lat_0=0 +lon_0=132 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs")
 
 tlist <- as.data.frame(list.files(here::here("dNBR"), pattern = ".tiff$"))
@@ -25,7 +25,7 @@ plist <- str_split_fixed(list.dirs(here("all_rgbs"),
 burns <- tlist$Burn.Id[tlist$Burn.Id %in% plist]
 #burns <- "BWD-1990-91349817"
 
-w.lst <- list.files("Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\sw_woodyVeg", pattern = "tif$")
+w.lst <- list.files("M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\sw_woodyVeg", pattern = "tif$")
 
 i <- 1
 #Define how many cores (memory is limiting factor here)
@@ -113,7 +113,7 @@ foreach(i = 1:length(burns)) %dopar% {
     y <- y+1
   }
   
-  rst.per <- raster(paste0("Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\sw_woodyVeg\\", w.i[1]))  
+  rst.per <- raster(paste0("M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\sw_woodyVeg\\", w.i[1]))  
  #########################################
   
   per.i <- crop(rst.per, st_transform(st_buffer(burn.shp, 240), crs(rst.per)))
