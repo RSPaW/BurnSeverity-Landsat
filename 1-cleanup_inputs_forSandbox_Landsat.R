@@ -14,7 +14,7 @@ mga50 <- "+proj=utm +zone=50 +south +datum=WGS84 +units=m +no_defs"
 pre.days <- 400 # number of days prior to start date included
 post.days <- 400  # number of days following to end date included
 
-histpath <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical"
+histpath <- "M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical"
 
 # inputs 
 shp.name <- "Amarillup_Fires.shp" # shp name
@@ -87,7 +87,7 @@ for (i in 1:nrow(shp.alb)){
 }
 #################################################################
 # get ibras
-mdir <- "Z:/DEC/Prescribed_Bushfire_Outcomes_2018-134/DATA/Working/Historical/xModels"
+mdir <- "M:/zdrive/DEC/Prescribed_Bushfire_Outcomes_2018-134/DATA/Working/Historical/xModels"
 
 ibra <- st_read(here(mdir,"IBRA_wa.shp"), quiet = TRUE) 
 dir.create("models/ibras", recursive = TRUE)
