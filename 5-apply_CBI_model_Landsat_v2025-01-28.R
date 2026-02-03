@@ -20,9 +20,9 @@ mtx <- c(-Inf, 0.3, 1,
          2.7, Inf, 5)
 rclmat <- matrix(mtx, ncol=3, byrow=TRUE)
 
-maxVals <- readRDS(paste0("Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xModels\\maxVals.sentinel"))
+maxVals <- readRDS(paste0("M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xModels\\maxVals.sentinel"))
 
-mdir <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xModels\\"
+mdir <- "M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xModels\\"
 mlist <- as.data.frame(list.files(mdir), stringsAsFactors = FALSE)
 colnames(mlist) <- "models"
 mlist <- mlist %>% mutate(type = str_split_fixed(models, "\\.", 7)[,1],
@@ -37,7 +37,7 @@ ibra <- st_read(paste0(mdir, "IBRA_wa.shp"), quiet = TRUE)
 
 #####HEATH######
 
-heath.dir <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\heath\\predict\\heath_shp"
+heath.dir <- "M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\heath\\predict\\heath_shp"
 
 heath.list <- list.files(heath.dir, pattern = "shp$")
 heath.list <- sort(heath.list, decreasing = TRUE)
@@ -46,7 +46,7 @@ heath <- st_read(paste0(heath.dir, "\\", heath.list[1]), quiet = TRUE) %>%
   st_transform("+proj=aea +lat_1=-18 +lat_2=-36 +lat_0=0 +lon_0=132 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs")
 heath <- heath[,0]
 
-heath.dir2 <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\heath\\heathFromDistricts"
+heath.dir2 <- "M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\heath\\heathFromDistricts"
 heath.list2 <- list.files(heath.dir2, pattern = "shp$", full.names = TRUE)
 
 i <- 1
@@ -126,7 +126,7 @@ plot(rst)
   
   burn.dist <- str_sub(bdr.name, end = 3)
   
-  mod <- readRDS(paste0("Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\ts.Model\\fireSeverity\\models\\", 
+  mod <- readRDS(paste0("M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\ts.Model\\fireSeverity\\models\\", 
                         "landsat.dNBR.to.sentinel.", df.dist$d1[which(df.dist$d2 ==   burn.dist)]))
   names(rst) <- "landsat"
   rst <- predict(rst, mod)
@@ -280,7 +280,7 @@ ggsave(here(v, "severity_stats", "summaryStats.jpg"), width = 5, height = 5)
 
 ########################################################
 #make treatment area
-idir <- "Z:\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xIndex\\"
+idir <- "M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical\\xIndex\\"
 shpl <- sort(list.files(idir, pattern = "DBCA_FireHistory_1987to2017_Id.*shp$"), decreasing = TRUE)
 shp.id <- st_read(paste0(idir, shpl[1]), quiet = TRUE) %>%
   st_drop_geometry() %>%
