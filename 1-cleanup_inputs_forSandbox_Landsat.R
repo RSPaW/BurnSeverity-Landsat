@@ -17,7 +17,7 @@ post.days <- 400  # number of days following to end date included
 histpath <- "M:\\zdrive\\DEC\\Prescribed_Bushfire_Outcomes_2018-134\\DATA\\Working\\Historical"
 
 # inputs 
-shp.name <- "Amarillup_Fires.shp" # shp name
+shp.name <- "Sutton_fires.shp" # shp name
 
 # read in shp
 shp <- st_read(here::here("fireSelection", shp.name), stringsAsFactors = FALSE) %>% 
@@ -42,8 +42,12 @@ for(i in seq_along(folds)){
   shpn <- list.files(paste0(folds[i], "/inputs"), pattern = ".shp$",
                      full.names = TRUE)[1]
   if(length(shpn != 0)){
-    burn_ids <- sf::st_read(shpn, quiet = TRUE) %>%
-      dplyr::pull(BURNID)
+    burn_ids <- as.character()
+    for(s in 1:length(shpn)){
+      burn_id <- sf::st_read(shpn[s], quiet = TRUE) %>%
+        dplyr::pull(BURNID)
+      burn_ids <- c(burn_ids, burn_id)
+    }
     idsDone <- c(idsDone, burn_ids)
   }
 }
